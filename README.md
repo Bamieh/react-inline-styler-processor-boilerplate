@@ -28,12 +28,6 @@ The function returns a processed styles object
 
 In this example we will create a processor that turns font sizes from `pixels` to `rems`.
 
-processor input:
-styleObject = {
-  color: 'blue',
-  fontSize: 14,
-}
-
 ```
 import invariant from 'invariant';
 
