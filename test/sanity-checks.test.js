@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import processor from '../'
+import processor from '../src'
 import styleObject from './fixture/styleObject'
 import processorConfigs from './fixture/processorConfigs'
 

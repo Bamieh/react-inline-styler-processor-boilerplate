@@ -1,6 +1,34 @@
 {
   "presets": [
-    "node5",
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
     "stage-0"
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-runtime",
+        "babel-plugin-inject"
+      ],
+      "presets": [
+        "modern-browsers",
+        "stage-0"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "istanbul",
+        "rewire"
+      ],
+      "presets": [
+        "stage-0"
+      ]
+    }
+  }
 }
