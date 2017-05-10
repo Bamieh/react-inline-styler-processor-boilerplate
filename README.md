@@ -17,7 +17,6 @@ The boilerplate provides the following:
 git clone https://github.com/Bamieh/react-inline-styler-processor-boilerplate.git
 cd react-inline-styler-processor-boilerplate
 npm install
-
 ```
 
 
@@ -51,7 +50,6 @@ export default function processor(styleObject, configs) {
     return styleAttribute;
   })
 }
-
 ```
 
 
@@ -66,7 +64,6 @@ npm run test
 
 #for continuous development
 npm run test:watch
-
 ```
 
 # Coverage
@@ -79,7 +76,7 @@ npm run coverage
 
 ## Todo
 
-With the following todo list in mind, feel free to help with the following:
+With the following todo list in mind, feel free to help out!
 
 - example folder
 - improve documentation
