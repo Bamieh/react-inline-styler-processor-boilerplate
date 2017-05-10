@@ -1,82 +1,134 @@
-# React Inline Styler Processor Boilerplate
+# react-inline-styler-processor-rtl
 
-A boilerplate for creating [React Inline Styler](https://github.com/Bamieh/react-inline-styler) Processors.
+(Right to left / left to right) dynamic inline styles processing.
 
-The boilerplate provides the following:
+RTL processor for React inline styler [react-inline-styler](https://github.com/Bamieh/react-inline-styler)
 
-- easy way to write your react inline styler processor.
-- configured babel for es6+.
-- configured prepublish and build process.
-- configured unit testing with mocha.
-- configured coverage with nyc
-- configured travis.
-- configured coveralls and codecov.
 
+This processor adds new syntax for the inline styles mainly, "start" and "end" which are dynamically changed to left or right depending on the wanted app language direction, by specifing `isRTL` in the `ReactInlineStylerProvider`.
+
+
+# Getting started
 
 ```
-git clone https://github.com/Bamieh/react-inline-styler-processor-boilerplate.git
-cd react-inline-styler-processor-boilerplate
-npm install
+npm install react-inline-styler-processor-rtl
 ```
 
-
-## Creating a processor
-
-Creating a processor is simple, the processor is just a function that accepts 1 style object at a time, and the provided configs from the `Provider` of react inline styler.
-
-The function returns a processed styles object
-
-## Example
-
-In this example we will create a processor that turns font sizes from `pixels` to `rems`.
+# Example Usage
 
 ```
-import invariant from 'invariant';
+//App.js
 
-export default function processor(styleObject, configs) {
-  const basePixelFontSize = configs.basePixelFontSize;
+import rtlProcessor from 'react-inline-styler-processor-rtl'
+// or var rtlProcessor = require('react-inline-styler-processor-rtl')
 
-  invariant(typeof basePixelFontSize === "undefined", 
-    'please pass "basePixelFontSize" to the react-inline-styler` +
-    `Provider in order for pixelsToRem processor to work.`)
+const pipeline = [rtlProcessor];
+const configs = {isRTL: true};
 
+<ReactInlineStylerProvider configs={configs} pipeline={pipeline}>
+</ReactInlineStylerProvider>
+```
 
-  return Object.entries(styleObject).map(styleAttribute => {
-    const [attributeKey, attributeValue] = styleAttribute;
-    if(/fontSize/.test(attributeKey)) {
-      styleAttribute[attributeKey] = `${attributeValue/basePixelFontSize}rem`;
+```
+//styles.js
+const styles = function() {
+  return {
+    rootStyle: {
+      float: 'start',
+      paddingStart: ...
     }
+  }
+}
+```
 
-    return styleAttribute;
-  })
+# Localization list
+
+localizing styles happens on the key of the attibute, or its value. in LTR configurations start is translated into "left" and "end" is translated into "right". in RTL, the other way around. 
+
+### Localed Values
+
+1. float
+
+```
+{
+  float: 'start',
+  float: 'end',
+}
+```
+
+2. direction
+
+```
+{
+  direction: 'start',
+  direction: 'end',
+}
+```
+
+3. transformOrigin
+
+```
+{
+  transformOrigin: 'start',
+  transformOrigin: 'end',
 }
 ```
 
 
-## Testing
-
-The boilerplate uses mocha for unit testing, run `npm test` to run the tests. The test files are located in the `test` directory, the `setup.js` file is used to setup mocha if needed. 
-
-
+4. transform
 ```
-# for single run
-npm run test
-
-#for continuous development
-npm run test:watch
+{
+  transform: translate
+  transform: skew
+}
 ```
 
-# Coverage
+### Localed Keys
 
-Unit tests are covered by [istanbul's nyc](https://github.com/istanbuljs/nyc). to run the coverage test, simply run
+1. margins and paddings
 
 ```
-npm run coverage
+{
+  marginStart: ...
+  marginEnd: ...
+  paddingStart: ...
+  paddingEnd: ...
+}
 ```
 
-## Todo
+2. positions
+```
+{
+  start: ...
+  end: ...
+}
+```
 
-With the following todo list in mind, feel free to help out!
+3. borders
 
-- example folder
-- improve documentation
+```
+{
+  borderStart: ...
+  borderStartWidth: ...
+  borderStartStyle: ...
+  borderStartColor: ...
+  borderEnd: ...
+  borderEndWidth: ...
+  borderEndStyle: ...
+  borderEndColor: ...
+}
+```
+
+
+4. borderRadius
+```
+{
+  borderTopStartRadius: ...
+  borderTopEndRadius: ...
+  borderBottomStartRadius: ...
+  borderBottomEndRadius: ...
+}
+```
+
+
+

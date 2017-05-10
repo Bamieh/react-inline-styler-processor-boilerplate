@@ -1,7 +1,7 @@
 {
-  "name": "react-inline-styler-processor-boilerplate",
-  "version": "0.8.0",
-  "description": "Boilerplate for creating React Inline Styler Processors.",
+  "name": "react-inline-styler-processor-rtl",
+  "version": "1.0.0",
+  "description": "React Inline Styler RTL Processors.",
   "main": "./distribution/index.js",
   "author": "Ahmad Bamieh",
   "license": "MIT",
