@@ -1,13 +1,16 @@
 # React Inline Styler Processor Boilerplate
 
-A boilerplate for creating React Inline Styler Processors.
+A boilerplate for creating [React Inline Styler](https://github.com/Bamieh/react-inline-styler) Processors.
 
 The boilerplate provides the following:
 
-- easy way to write your processor.
-- configured babel to build the processor in es5 for backward compatibility.
-- configured build process, and prepublish to npm.
+- easy way to write your react inline styler processor.
+- configured babel for es6+.
+- configured prepublish and build process.
 - configured unit testing with mocha.
+- configured coverage with nyc
+- configured travis.
+- configured coveralls and codecov.
 
 
 ```
@@ -57,11 +60,26 @@ export default function processor(styleObject, configs) {
 The boilerplate uses mocha for unit testing, run `npm test` to run the tests. The test files are located in the `test` directory, the `setup.js` file is used to setup mocha if needed. 
 
 
+```
+# for single run
+npm run test
+
+#for continuous development
+npm run test:watch
+
+```
+
+# Coverage
+
+Unit tests are covered by [istanbul's nyc](https://github.com/istanbuljs/nyc). to run the coverage test, simply run
+
+```
+npm run coverage
+```
 
 ## Todo
 
 With the following todo list in mind, feel free to help with the following:
 
-- coverage test
 - example folder
-- run tests before build
+- improve documentation
