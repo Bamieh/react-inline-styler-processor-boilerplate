@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/Bamieh/react-inline-styler-processor-rtl.svg?branch=master)](https://travis-ci.org/Bamieh/react-inline-styler-processor-rtl)
+[![Coverage Status](https://coveralls.io/repos/github/Bamieh/react-inline-styler-processor-rtl/badge.svg?branch=master)](https://coveralls.io/github/Bamieh/react-inline-styler-processor-rtl?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # react-inline-styler-processor-rtl
 
 (Right to left / left to right) dynamic inline styles processing.
