@@ -3,6 +3,7 @@ import invariant from 'invariant';
 
 const reTranslate = /((^|\s)translate(3d|X)?\()(\-?[\d]+)/;
 const reSkew = /((^|\s)skew(x|y)?\()\s*(\-?[\d]+)(deg|rad|grad)(,\s*(\-?[\d]+)(deg|rad|grad))?/;
+const UNDEFINED_IS_RTL_ERROR = "isRTL is undefined. isRTL should be supplied to the configurations of the react-inline-styler Provider component"
 
 const maybeUpperCaseFirst = (str, cond) => {
   return cond? str.charAt(0).toUpperCase() + str.substring(1) : str;
@@ -68,12 +69,11 @@ export const inlineStylerRTLProccessorHelpers = (isRTL) => {
   const onRTL = (rtlStyle, lrtStyle) => isRTL? rtlStyle : lrtStyle;
   return {
     onlyRTL: (rtl) => onRTL(rtl, null),
-    onlyLTR: (lrt) => onRTL(null, ltr),
+    onlyLTR: (lrt) => onRTL(null, lrt),
     onRTL,
   }
 }
 
-const UNDEFINED_IS_RTL_ERROR = "isRTL is undefined. isRTL should be supplied to the configurations of the react-inline-styler Provider component"
 
 export default function processor(styleObject, configurations) {
   const {isRTL} = configurations;
