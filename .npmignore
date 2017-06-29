@@ -1,6 +1,5 @@
 test
 example
-.sublime-*
 .idea
 build
 tools
@@ -11,6 +10,6 @@ yarn-error.log
 coverage
 .nyc_output
 src
-react-inline-styler.sublime-project
+*.sublime-*
 .travis.yml
 .nycrc

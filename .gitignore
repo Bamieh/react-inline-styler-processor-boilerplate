@@ -1,7 +1,6 @@
 node_modules
 distribution
-react-inline-styler.sublime-workspace
-react-inline-styler.sublime-project
+*.sublime-workspace
 .idea
 database.sqlite
 node_modules
